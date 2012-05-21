@@ -1,6 +1,5 @@
 import datetime
 import time
-import Image
 from hashlib import md5
 from os.path import join as pjoin
 
@@ -245,6 +244,7 @@ class ImageValue(Value):
                     if not value:
                         raise IOError('No value')
 
+                    import Image
                     Image.open(value.file)
                     file_name = pjoin(settings.MEDIA_URL, value.name).replace("\\","/")
                     params = {"file_name" : file_name }
